@@ -62,7 +62,7 @@
         .search-card {
             width: 100%;
             max-width: 28rem; // max-w-md
-            background-color: rgba(30, 58, 138, 0.9); // blue-900/90
+            background-color: #002E7A; // blue-900/90
             backdrop-filter: blur(4px);
             border-radius: 0.75rem; // rounded-xl
             padding: 1.5rem;
@@ -95,7 +95,7 @@
                         pointer-events: none;
 
                         span {
-                            color: #9ca3af; // gray-400
+                            color: #4E565E; // gray-400
                         }
                     }
 
@@ -144,7 +144,7 @@
                 .btn-search {
                     width: fit-content;
                     margin-top: 0.5rem;
-                    background-color: #3b82f6; // blue-500
+                    background-color: rgba(0, 114, 255, 1); // blue-500
                     color: #ffffff;
                     font-weight: 500;
                     padding: 0.625rem 1.5rem;

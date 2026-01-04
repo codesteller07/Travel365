@@ -52,9 +52,9 @@ export default function Main() {
             <div className="card-content">
               <div className="location">Malaga</div>
               <h4>Hotel Malaga</h4>
-              <div className="rating">
+              {/* <div className="rating">
                 <span className="material-icons-round star">star</span> 4.8 (120 reviews)
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -69,9 +69,9 @@ export default function Main() {
             <div className="card-content">
               <div className="location">Bali</div>
               <h4>Ocean View Resort</h4>
-              <div className="rating">
+              {/* <div className="rating">
                 <span className="material-icons-round star">star</span> 4.9 (850 reviews)
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -87,9 +87,9 @@ export default function Main() {
             <div className="card-content">
               <div className="location">Paris</div>
               <h4>Grand Hotel Paris</h4>
-              <div className="rating">
+              {/* <div className="rating">
                 <span className="material-icons-round star">star</span> 4.7 (320 reviews)
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -105,9 +105,9 @@ export default function Main() {
             <div className="card-content">
               <div className="location">Swiss Alps</div>
               <h4>Mountain Lodge</h4>
-              <div className="rating">
+              {/* <div className="rating">
                 <span className="material-icons-round star">star</span> 4.9 (45 reviews)
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
