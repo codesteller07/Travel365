@@ -1,0 +1,167 @@
+@import './variables';
+
+.hero {
+    position: relative;
+    height: 600px;
+    width: 100%;
+
+    .hero-bg {
+        position: absolute;
+        inset: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    .hero-content {
+        position: relative;
+        max-width: $max-width;
+        margin: 0 auto;
+        padding: 0 1rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @media (min-width: $mobile) {
+            padding: 0 1.5rem;
+        }
+
+        @media (min-width: $desktop) {
+            padding: 0 2rem;
+        }
+
+        h1 {
+            font-size: 1.875rem; // 3xl
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+            @media (min-width: $tablet) {
+                font-size: 2.25rem;
+            }
+
+            // 4xl
+            @media (min-width: $desktop) {
+                font-size: 3rem;
+            }
+
+            // 5xl
+        }
+
+        .search-card {
+            width: 100%;
+            max-width: 28rem; // max-w-md
+            background-color: rgba(30, 58, 138, 0.9); // blue-900/90
+            backdrop-filter: blur(4px);
+            border-radius: 0.75rem; // rounded-xl
+            padding: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+
+            h2 {
+                color: #ffffff;
+                font-weight: 600;
+                font-size: 1.125rem; // lg
+                margin: 0 0 1rem 0;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+
+                .input-group {
+                    position: relative;
+
+                    .icon {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        padding-right: 0.75rem;
+                        display: flex;
+                        align-items: center;
+                        pointer-events: none;
+
+                        span {
+                            color: #9ca3af; // gray-400
+                        }
+                    }
+
+                    input {
+                        display: block;
+                        width: 100%;
+                        padding: 0.75rem 0.75rem 0.75rem 1rem; // py-3 pl-4
+                        padding-right: 2.5rem; // pr-10
+                        border-radius: 0.5rem; // rounded-lg
+                        border: none;
+                        outline: none;
+                        background-color: #ffffff;
+                        color: $text-primary;
+
+                        &::placeholder {
+                            color: #6b7280; // gray-500
+                        }
+
+                        &:focus {
+                            box-shadow: 0 0 0 2px $primary;
+                        }
+                    }
+                }
+
+                .tags {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 0.5rem;
+                    font-size: 0.75rem; // text-xs
+                    color: #dbeafe; // blue-100
+
+                    span {
+                        padding: 0.25rem 0.5rem;
+                        border-radius: 9999px;
+                        border: 1px solid rgba(96, 165, 250, 0.5); // blue-400/50
+                        background-color: rgba(30, 64, 175, 0.5); // blue-800/50
+                        cursor: pointer;
+                        transition: background-color 0.2s;
+
+                        &:hover {
+                            background-color: #1d4ed8; // blue-700
+                        }
+                    }
+                }
+
+                .btn-search {
+                    width: fit-content;
+                    margin-top: 0.5rem;
+                    background-color: #3b82f6; // blue-500
+                    color: #ffffff;
+                    font-weight: 500;
+                    padding: 0.625rem 1.5rem;
+                    border-radius: 0.5rem;
+                    border: none;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                    transition: background-color 0.2s;
+
+                    &:hover {
+                        background-color: #2563eb; // blue-600
+                    }
+                }
+            }
+        }
+    }
+}

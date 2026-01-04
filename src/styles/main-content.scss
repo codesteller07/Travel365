@@ -1,0 +1,462 @@
+@import './variables';
+
+main.container {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem; // space-y-16
+
+    @media (min-width: $mobile) {
+        padding: 3rem 1.5rem;
+    }
+
+    @media (min-width: $desktop) {
+        padding: 3rem 2rem;
+    }
+}
+
+section {
+    h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: $text-primary;
+        margin: 0 0 1.5rem 0;
+    }
+}
+
+// Promo Deals Grid
+.promo-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    @media (min-width: $tablet) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .promo-card {
+        aspect-ratio: 16/9;
+        background-color: #f3f4f6;
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px dashed #e5e7eb;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        transition: box-shadow 0.2s;
+
+        &:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        span {
+            font-size: 2.25rem;
+            font-weight: 300;
+            z-index: 10;
+            color: #9ca3af;
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            opacity: 0.5;
+        }
+
+        &.blue .overlay {
+            background: linear-gradient(to bottom right, #eff6ff, #e0e7ff);
+        }
+
+        &.purple .overlay {
+            background: linear-gradient(to bottom right, #faf5ff, #fce7f3);
+        }
+
+        &.green .overlay {
+            background: linear-gradient(to bottom right, #f0fdf4, #ccfbf1);
+        }
+
+        .nav-icon {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2.5rem;
+            height: 2.5rem;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4b5563;
+        }
+    }
+}
+
+// Flash Deals Carousel
+.carousel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+
+    .controls {
+        display: flex;
+        gap: 0.5rem;
+
+        button {
+            padding: 0.25rem;
+            border-radius: 9999px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            color: $text-primary;
+            transition: background-color 0.2s;
+
+            &:hover {
+                background-color: #f3f4f6;
+            }
+
+            span {
+                color: #9ca3af;
+            }
+        }
+    }
+}
+
+.flash-deals {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .deal-card {
+        min-width: 280px;
+        background: $background-light;
+        border-radius: 0.75rem;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        border: 1px solid #f3f4f6;
+        overflow: hidden;
+        scroll-snap-align: start;
+        transition: box-shadow 0.2s;
+
+        @media (min-width: $tablet) {
+            min-width: 320px;
+        }
+
+        &:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container {
+            position: relative;
+            height: 10rem;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .badges {
+                position: absolute;
+                top: 0.5rem;
+                left: 0.5rem;
+                display: flex;
+                gap: 0.25rem;
+
+                span {
+                    font-size: 0.625rem;
+                    font-weight: 700;
+                    padding: 0.125rem 0.5rem;
+                    border-radius: 0.25rem;
+                    text-transform: uppercase;
+                    color: #ffffff;
+
+                    &.special {
+                        background-color: #ec4899;
+                    }
+
+                    &.discount {
+                        background-color: #ef4444;
+                    }
+
+                    &.hot {
+                        background-color: #f97316;
+                    }
+                }
+            }
+
+            .fav-btn {
+                position: absolute;
+                top: 0.5rem;
+                right: 0.5rem;
+                padding: 0.375rem;
+                background: rgba(255, 255, 255, 0.8);
+                border-radius: 9999px;
+                border: none;
+                cursor: pointer;
+                color: #4b5563;
+                display: flex;
+
+                &:hover {
+                    background: #ffffff;
+                }
+            }
+        }
+
+        .card-content {
+            padding: 1rem;
+
+            .location {
+                font-size: 0.75rem;
+                color: $primary;
+                font-weight: 500;
+                margin-bottom: 0.25rem;
+            }
+
+            h4 {
+                font-weight: 700;
+                color: $text-primary;
+                margin: 0 0 0.25rem 0;
+            }
+
+            .rating {
+                display: flex;
+                align-items: center;
+                font-size: 0.75rem;
+                color: $text-secondary;
+
+                .star {
+                    color: #facc15;
+                    font-size: 0.875rem;
+                    margin-right: 0.25rem;
+                }
+            }
+        }
+    }
+}
+
+// Destination Grid
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+
+    @media (min-width: $tablet) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: $desktop) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .dest-item {
+        cursor: pointer;
+
+        .img-wrap {
+            aspect-ratio: 1/1;
+            border-radius: 1rem;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s;
+            }
+        }
+
+        &:hover {
+            .img-wrap img {
+                transform: scale(1.1);
+            }
+
+            p {
+                color: $primary;
+            }
+        }
+
+        p {
+            font-weight: 600;
+            color: $text-primary;
+            transition: color 0.2s;
+        }
+    }
+}
+
+// Hot Deals Banner
+.hot-deals-banner {
+    background-color: $primary;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+    .bg-pattern {
+        position: absolute;
+        inset: 0;
+        opacity: 0.1;
+        background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+    }
+
+    .banner-content {
+        position: relative;
+        z-index: 10;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        @media (min-width: $tablet) {
+            flex-direction: row;
+        }
+
+        .left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+
+            @media (min-width: $tablet) {
+                margin-bottom: 0;
+            }
+
+            .icon-circle {
+                background: #ffffff;
+                border-radius: 9999px;
+                padding: 1rem;
+                width: 5rem;
+                height: 5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                position: relative;
+                flex-shrink: 0;
+
+                span {
+                    position: absolute;
+                    font-size: 3rem;
+
+                    &:first-child {
+                        color: #ef4444;
+                        transform: translate(-0.25rem, 0.25rem);
+                    }
+
+                    &:last-child {
+                        color: #fb923c;
+                        left: 1.5rem;
+                        top: 0.75rem;
+                    }
+                }
+            }
+
+            .text {
+                h3 {
+                    font-size: 1.5rem;
+
+                    @media (min-width: $tablet) {
+                        font-size: 1.875rem;
+                    }
+
+                    font-weight: 700;
+                    color: #ffffff;
+                    margin-bottom: 0.25rem;
+                }
+
+                p {
+                    color: #dbeafe;
+                    opacity: 0.9;
+                }
+            }
+        }
+
+        button {
+            background: #ffffff;
+            color: $primary;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background-color 0.2s;
+
+            &:hover {
+                background: #f3f4f6;
+            }
+        }
+    }
+}
+
+// FAQ
+.faq-section {
+    max-width: 56rem; // 4xl
+    margin: 0 auto;
+
+    h3 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        details {
+            background: #ffffff;
+            border-radius: 0.5rem;
+            border: 1px solid #f3f4f6;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+            &[open] summary span {
+                transform: rotate(180deg);
+            }
+
+            summary {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1.5rem;
+                cursor: pointer;
+                list-style: none;
+
+                &::-webkit-details-marker {
+                    display: none;
+                }
+
+                h4 {
+                    font-weight: 600;
+                    color: $text-primary;
+                }
+
+                span {
+                    color: #9ca3af;
+                    transition: transform 0.2s;
+                }
+            }
+
+            .answer {
+                padding: 0 1.5rem 1.5rem;
+                font-size: 0.875rem;
+                color: $text-secondary;
+                line-height: 1.625;
+            }
+        }
+    }
+}
