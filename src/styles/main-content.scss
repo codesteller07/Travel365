@@ -148,6 +148,7 @@ section {
         overflow: hidden;
         scroll-snap-align: start;
         transition: box-shadow 0.2s;
+        cursor: pointer;
 
         @media (min-width: $tablet) {
             min-width: 280px;
